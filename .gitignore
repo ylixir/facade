@@ -1,4 +1,11 @@
-# elm-package generated files
-elm-stuff
-# elm-repl generated files
-repl-temp-*
+/_pages/
+/_posts/
+/_resources/img/
+/_site/
+/elm-stuff/
+/node_modules/
+
+/_layouts/Author.elm
+/config.json
+/elm.js
+/package-lock.json
