@@ -3,6 +3,7 @@ module Icons exposing (githubIcon, twitterIcon)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 
+
 githubIcon : Html Never
 githubIcon =
     let
@@ -31,6 +32,3 @@ M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-
                 []
     in
     Html.node "svg" [ attribute "width" "16", attribute "height" "16", attribute "viewBox" "0 0 16 16" ] [ pathNode ]
-
-
-

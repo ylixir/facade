@@ -2,20 +2,43 @@
    have to be written in CSS.
 */
 
+/* vertcal layout (mobile) */
 body {
     height: 100vh;
     display: grid;           
     grid-gap: 20px 0;
     gap: 20px 0;
-    grid-template-columns: minmax(1fr, 100vw);
-    grid-template-rows: 100px 50px 0 auto 0 80px;
+    grid-template-rows: 150px 0 auto 0 80px;
     grid-template-areas:
-        "header-logo"
-        "navigation"
+        "header"
         "sidebar"
         "content"
         "sidebar2"
         "footer"
+}
+header {
+    grid-area: header;
+    display: grid;
+    grid-gap: 20px 0;
+    grid-template-rows: 100px 50px;
+    grid-template-areas:
+        "header-logo" "navigation";
+}
+
+/* horizontal layout (desktop) */
+@media only screen and (min-width: 600px) {
+    body {
+        grid-template-rows: 100px 1fr 80px;
+        grid-template-columns: 1fr minmax(400px, 800px) 1fr;
+        grid-template-areas:
+            "header header header"
+            "sidebar     content    sidebar2"
+            "footer      footer     footer";
+    }
+    header {
+        grid-template-areas:
+            "header-logo navigation navigation";
+    }
 }
 
 .sidebar {
@@ -42,13 +65,4 @@ body {
     grid-area: footer;
 }
 
-@media only screen and (min-width: 600px) {
-    body {
-        grid-template-rows: 100px 1fr 80px;
-        grid-template-columns: 1fr minmax(400px, 800px) 1fr;
-        grid-template-areas:
-            "header-logo navigation navigation"
-            "sidebar     content    sidebar2"
-            "footer      footer     footer";
-    }
-}
+

@@ -47,16 +47,17 @@ styles =
         , each [ h5, h6 ] [ fontSize <| Css.em 1.0, marginBottom <| rem 0.60606 ]
         , p [ margin3 auto auto (rem 1.5) ]
         , Css.Global.small [ fontSize <| pct 65 ]
+        , header
+            [ borderBottom3 (px 2) solid (hex "3c8765")
+            , backgroundColor <| hex "f2fae8"
+            ]
         , class "header-logo"
             [ paddingTop <| px 6
             , textAlign center
-            , backgroundColor <| hex "f2fae8"
-            , wideScreen [ textAlign left, borderBottom3 (px 2) solid (hex "3c8765") ]
+            , wideScreen [ textAlign left ]
             ]
         , class "navigation"
             [ textAlign center
-            , borderBottom3 (px 2) solid (hex "3c8765")
-            , backgroundColor <| hex "f2fae8"
             , padding <| px 10
             , marginTop <| px -20
             , descendants

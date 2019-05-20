@@ -1,12 +1,12 @@
-module Page exposing (footer, header, layout, main, markdown)
-
-import Html exposing (..)
-import Html.Attributes as Attr exposing (alt, attribute, class, href, src)
-import Markdown
+module Page exposing (footer, layout, main, markdown)
 
 import Elmstatic exposing (..)
-import Icons exposing (twitterIcon, githubIcon)
+import Html exposing (..)
+import Html.Attributes as Attr exposing (alt, attribute, class, href, src)
+import Icons exposing (githubIcon, twitterIcon)
+import Markdown
 import Styles
+
 
 markdown : String -> Html Never
 markdown s =
@@ -22,29 +22,30 @@ markdown s =
     Markdown.toHtmlWith mdOptions [ attribute "class" "markdown" ] s
 
 
-header : List (Html Never)
-header =
-    [ div [ class "header-logo" ]
-        [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
-            []
-        ]
-    , div [ class "navigation" ]
-        [ ul []
-            [ li []
-                [ a [ href "/posts" ]
-                    [ text "Posts" ]
-                ]
-            , li []
-                [ a [ href "/about" ]
-                    [ text "About" ]
-                ]
-            , li []
-                [ a [ href "/contact" ]
-                    [ text "Contact" ]
+head : Html Never
+head =
+    header []
+        [ div [ class "header-logo" ]
+            [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
+                []
+            ]
+        , div [ class "navigation" ]
+            [ ul []
+                [ li []
+                    [ a [ href "/posts" ]
+                        [ text "Posts" ]
+                    ]
+                , li []
+                    [ a [ href "/about" ]
+                        [ text "About" ]
+                    ]
+                , li []
+                    [ a [ href "/contact" ]
+                        [ text "Contact" ]
+                    ]
                 ]
             ]
         ]
-    ]
 
 
 footer : Html Never
@@ -76,17 +77,17 @@ footer =
 
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
-    header
-        ++ [ div [ class "sidebar" ]
-                []
-           , div [ class "sidebar2" ]
-                []
-           , div [ class "content" ]
-                ([ h1 [] [ text title ] ] ++ contentItems)
-           , footer
-           , Elmstatic.stylesheet "/styles.css"
-           , Styles.styles
-           ]
+    [ head
+    , div [ class "sidebar" ]
+        []
+    , div [ class "sidebar2" ]
+        []
+    , div [ class "content" ]
+        ([ h1 [] [ text title ] ] ++ contentItems)
+    , footer
+    , Elmstatic.stylesheet "/styles.css"
+    , Styles.styles
+    ]
 
 
 main : Elmstatic.Layout
