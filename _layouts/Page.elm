@@ -29,7 +29,7 @@ head =
             [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
                 []
             ]
-        , div [ class "navigation" ]
+        , nav []
             [ ul []
                 [ li []
                     [ a [ href "/posts" ]

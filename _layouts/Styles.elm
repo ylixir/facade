@@ -50,28 +50,29 @@ styles =
         , header
             [ borderBottom3 (px 2) solid (hex "3c8765")
             , backgroundColor <| hex "f2fae8"
+            , textAlign center
+            , descendants
+                [ nav
+                    [ padding <| px 10
+                    , marginTop <| px -20
+                    , descendants
+                        [ ul
+                            [ margin <| px 0
+                            , padding <| px 0
+                            , wideScreen [ lineHeight <| px 100 ]
+                            ]
+                        , li
+                            [ display inlineBlock
+                            , marginRight <| px 20
+                            ]
+                        ]
+                    , wideScreen [ marginTop <| px 0, padding <| px 0, textAlign right ]
+                    ]
+                ]
             ]
         , class "header-logo"
             [ paddingTop <| px 6
-            , textAlign center
             , wideScreen [ textAlign left ]
-            ]
-        , class "navigation"
-            [ textAlign center
-            , padding <| px 10
-            , marginTop <| px -20
-            , descendants
-                [ ul
-                    [ margin <| px 0
-                    , padding <| px 0
-                    , wideScreen [ lineHeight <| px 100 ]
-                    ]
-                , li
-                    [ display inlineBlock
-                    , marginRight <| px 20
-                    ]
-                ]
-            , wideScreen [ marginTop <| px 0, padding <| px 0, textAlign right ]
             ]
         , class "content" [ Css.maxWidth <| vw 100 ]
         , class "footer"

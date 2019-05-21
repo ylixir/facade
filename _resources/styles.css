@@ -57,7 +57,7 @@ header {
     grid-area: header-logo;
 }
 
-.navigation {
+header nav {
     grid-area: navigation;
 }
 
