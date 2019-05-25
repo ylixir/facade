@@ -1,5 +1,6 @@
 module Page exposing (foot, layout, main, markdown)
 
+import Author exposing (author)
 import Elmstatic exposing (..)
 import Html exposing (..)
 import Html.Attributes as Attr exposing (alt, attribute, class, href, src)
@@ -26,7 +27,11 @@ head : Html Never
 head =
     header []
         [ div [ class "header-logo" ]
-            [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
+            [ img
+                [ alt <| String.concat [ author.name, "'s Site" ]
+                , src "/img/logo.png"
+                , attribute "width" "100"
+                ]
                 []
             ]
         , nav []
@@ -52,7 +57,7 @@ foot : Html Never
 foot =
     footer []
         [ img
-            [ alt "Author's blog"
+            [ alt <| String.concat [ author.name, "'s Site" ]
             , src "/img/logo.png"
             , attribute "style" "float: left; padding-top: 7px"
             , attribute "width" "75"
@@ -60,13 +65,25 @@ foot =
             []
         , div [ class "link" ]
             [ githubIcon
-            , a [ href "https://github.com" ]
-                [ text "Author's GitHub" ]
+            , a
+                [ href <|
+                    String.concat
+                        [ "https://github.com/"
+                        , author.github
+                        ]
+                ]
+                [ text "GitHub" ]
             ]
         , div [ class "link" ]
             [ twitterIcon
-            , a [ href "https://twitter.com" ]
-                [ text "Author's Twitter" ]
+            , a
+                [ href <|
+                    String.concat
+                        [ "https://twitter.com/"
+                        , author.twitter
+                        ]
+                ]
+                [ text "Twitter" ]
             ]
         , div [ class "link" ]
             [ a [ href "https://www.npmjs.com/package/elmstatic" ]
