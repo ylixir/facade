@@ -1,8 +1,9 @@
 module Author exposing (author)
 
-author = {
-    fullName = "First Last",
-    name = "First",
-    github = "authorHandle",
-    twitter = "twitterHandle"
+
+author =
+    { fullName = "First Last"
+    , name = "First"
+    , github = "authorHandle"
+    , twitter = "twitterHandle"
     }
