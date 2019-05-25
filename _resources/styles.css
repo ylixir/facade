@@ -61,7 +61,7 @@ header nav {
     grid-area: navigation;
 }
 
-.footer {
+footer {
     grid-area: footer;
 }
 

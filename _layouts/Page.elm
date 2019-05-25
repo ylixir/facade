@@ -1,4 +1,4 @@
-module Page exposing (footer, layout, main, markdown)
+module Page exposing (foot, layout, main, markdown)
 
 import Elmstatic exposing (..)
 import Html exposing (..)
@@ -48,9 +48,9 @@ head =
         ]
 
 
-footer : Html Never
-footer =
-    div [ class "footer" ]
+foot : Html Never
+foot =
+    footer []
         [ img
             [ alt "Author's blog"
             , src "/img/logo.png"
@@ -84,7 +84,7 @@ layout title contentItems =
         []
     , div [ class "content" ]
         ([ h1 [] [ text title ] ] ++ contentItems)
-    , footer
+    , foot
     , Elmstatic.stylesheet "/styles.css"
     , Styles.styles
     ]
